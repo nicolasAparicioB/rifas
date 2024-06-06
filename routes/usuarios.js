@@ -1,9 +1,12 @@
 const {Router} = require('express');
 const { check } = require('express-validator');
 const { validarCampos } = require('../helpers/validar-campos');
-const {createUsuario} = require('../controllers/usuarios');
+const {createUsuario,listUsuarios} = require('../controllers/usuarios');
 
 const router = Router();
+
+router.get('/',[
+], listUsuarios);
 
 router.post('/',[
     check('nombre','El nombre es obligatorio').not().isEmpty(),
